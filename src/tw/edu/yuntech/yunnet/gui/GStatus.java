@@ -3,9 +3,11 @@ package tw.edu.yuntech.yunnet.gui;
 import javax.swing.*;
 import java.awt.*;
 
+
 public class GStatus {
 
     private JFrame frame;
+    private Graphics g;
 
     public GStatus(boolean border) {
         frame = new JFrame("JLibCisco-Cli - Status");

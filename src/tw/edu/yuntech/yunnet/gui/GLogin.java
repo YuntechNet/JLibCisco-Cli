@@ -1,5 +1,6 @@
 package tw.edu.yuntech.yunnet.gui;
 
+import tw.edu.yuntech.yunnet.server.RemoteServer;
 import tw.edu.yuntech.yunnet.utils.EnumLoginMode;
 import tw.edu.yuntech.yunnet.utils.LimitDocByRegex;
 import tw.edu.yuntech.yunnet.utils.NetUtils;
@@ -131,6 +132,9 @@ public class GLogin implements ActionListener {
             } else {
                 EnumLoginMode loginMode = EnumLoginMode.valueOf(bg.getSelection().getActionCommand());
                 System.out.println(loginMode.getValue());
+                RemoteServer rs = new RemoteServer(fields[0].getText().split(":")[0], Integer.valueOf(fields[0].getText().split(":")[1]));
+                rs.send("Init");
+                rs.close();
             }
         } else if(cmd.equals(buttons[1].getText())) { // Cancel
             System.exit(0);
